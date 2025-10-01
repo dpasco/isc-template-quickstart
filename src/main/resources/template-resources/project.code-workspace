@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+         {
+           "name": "project-server:SYS",
+           "uri": "isfs://project-server:%sys/?generated=1&filter=*.cls,*.mac,*.int,*.inc,'%CPT*.cls,'%cspapp*.cls,'%csr*.cls"
+         },
+         {
+           "name": "project-server:USER",
+           "uri": "isfs://project-server:USER/?generated=1&filter=*.cls,*.mac,*.int,*.inc,'%CPT*.cls,'%cspapp*.cls,'%csr*.cls"
+         }
+  ],
+  "settings": {
+    "intersystems.servers": {
+      "project-server": {
+        "webServer": {
+          "scheme": "http",
+          "host": "localhost",
+          "port": 80,
+          "pathPrefix": "/iris"
+        }
+      }
+    },
+    "breadcrumbs.enabled": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.renderWhitespace": "all",
+    "intersystems.language-server.formatting.commands.case": "lower",
+    "objectscript.compileFlags": "k",
+    "objectscript.conn": {
+      "server": "project-server",
+      "ns": "USER",
+      "active": false
+    },
+    "objectscript.showExplorer": false,
+    "workbench.colorTheme": "InterSystems Default Dark",
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "ISC IPT QuickStart",
+  "description": "A simple IPT project template with Java and ObjectScript",
+  "fileSets": [
+    {
+      "directory": ".",
+      "filtered": true,
+      "packaged": false,
+      "includes": [
+        "pom.xml",
+        "*.md",
+        "*.txt",
+        "*.yml",
+        "*.yaml",
+        "*.json",
+        "Dockerfile*",
+        ".gitignore",
+        ".dockerignore"
+      ],
+      "excludes": [
+        ".ipt-template.json",
+        "target/**",
+        ".git/**",
+        ".idea/**",
+        ".vscode/**"
+      ]
+    },
+    {
+      "directory": ".mvn",
+      "filtered": true,
+      "packaged": false,
+      "includes": ["maven.config"],
+      "excludes": []
+    },
+    {
+      "directory": "src/main/java",
+      "filtered": true,
+      "packaged": true,
+      "includes": ["**/*.java"],
+      "excludes": []
+    },
+    {
+      "directory": "src/test/java",
+      "filtered": true,
+      "packaged": true,
+      "includes": ["**/*.java"],
+      "excludes": []
+    },
+    {
+      "directory": "src/main/objectscript",
+      "filtered": true,
+      "packaged": true,
+      "includes": ["**/*.cls", "**/*.mac", "**/*.int"],
+      "excludes": []
+    },
+    {
+      "directory": "src/test/objectscript",
+      "filtered": true,
+      "packaged": true,
+      "includes": ["**/*.cls", "**/*.mac", "**/*.int"],
+      "excludes": []
+    },
+    {
+      "directory": "src/main/resources",
+      "filtered": false,
+      "packaged": false,
+      "includes": ["**/*"],
+      "excludes": []
+    }
+  ]
+}

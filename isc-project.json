@@ -1,0 +1,8 @@
+{
+  "groupId": "com.intersystems.ipt",
+  "artifactId": "ipt-template-iris-quickstart",
+  "version": "1.0.0",
+  "resolvedVersion": "${revision}",
+  "requirements": [
+  ]
+}

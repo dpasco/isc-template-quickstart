@@ -1,0 +1,8 @@
+{
+  "groupId": "${groupId}",
+  "artifactId": "${artifactId}",
+  "version": "${version}",
+  "resolvedVersion": "${revision}",
+  "requirements": [
+  ]
+}

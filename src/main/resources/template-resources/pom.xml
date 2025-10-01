@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${revision}</version>
+    <name>${artifactId}</name>
+    <description>Generated InterSystems project</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk>8</jdk>
+        <maven.compiler.source>${jdk}</maven.compiler.source>
+        <maven.compiler.target>${jdk}</maven.compiler.target>
+        <directory>${project.basedir}/target</directory>
+        <maven.build.timestamp.format>d MMMM',' yyyy 'at' hh:mma zz</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main</directory>
+                <includes>
+                    <include>objectscript/**/*</include>
+                    <include>python/**/*</include>
+                    <include>resources/**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${pom.basedir}</directory>
+                <includes>
+                    <include>isc-project.json</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jfrog.buildinfo</groupId>
+                <artifactId>artifactory-maven-plugin</artifactId>
+                <version>3.6.2</version>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                        <configuration>
+                            <artifactory>
+                                <includeEnvVars>true</includeEnvVars>
+                                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*,*CI*,*FF*</envVarsExcludePatterns>
+                                <envVarsIncludePatterns>*os*</envVarsIncludePatterns>
+                            </artifactory>
+                            <buildInfo>
+                                <agentName>${ARTIFACTORY_USERNAME}</agentName>
+                                <buildName>${project.artifactId}</buildName>
+                                <buildNumber>${BUILD_VERSION}</buildNumber>
+                                <project>${ARTIFACTORY_PROJECT}</project>
+                            </buildInfo>
+                            <publisher>
+                                <contextUrl>https://arti.iscinternal.com:443/artifactory/</contextUrl>
+                                <username>${ARTIFACTORY_USERNAME}</username>
+                                <password>${ARTIFACTORY_PASSWORD}</password>
+                                <repoKey>${ARTIFACTORY_PROJECT}-maven-qd-local</repoKey>
+                                <snapshotRepoKey>${snapshotRepoKey}</snapshotRepoKey>
+                                <publishArtifacts>true</publishArtifacts>
+                                <publishBuildInfo>true</publishBuildInfo>
+                                <filterExcludedArtifactsFromBuild>true</filterExcludedArtifactsFromBuild>
+                                <recordAllDependencies>true</recordAllDependencies>
+                            </publisher>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
