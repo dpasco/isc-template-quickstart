@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.intersystems</groupId>
-        <artifactId>iris-project-initializer</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
+    <groupId>com.intersystems.templates</groupId>
+    <artifactId>isc-template-quickstart</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
-    <artifactId>isc-template-iris-quickstart</artifactId>
     <packaging>jar</packaging>
 
 
@@ -33,7 +31,7 @@
 
     <build>
         <resources>
-               <resource>
+            <resource>
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*</include>
@@ -83,7 +81,8 @@
                         <configuration>
                             <artifactory>
                                 <includeEnvVars>true</includeEnvVars>
-                                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*,*CI*,*FF*</envVarsExcludePatterns>
+                                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*,*CI*,*FF*
+                                </envVarsExcludePatterns>
                                 <envVarsIncludePatterns>*os*</envVarsIncludePatterns>
                             </artifactory>
                             <buildInfo>
